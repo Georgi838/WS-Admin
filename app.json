@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "WebStoll",
-    "slug": "WebStoll",
-    "version": "1.0.0",
+    "name": "WebStol",
+    "slug": "web-stol",
+    "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logoSquareWhite.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#88D3EE"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -18,13 +18,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.WebStol.WebStol"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logoSquareWhite.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.WebStol.WebStol"
     },
     "web": {
       "favicon": "./assets/favicon.png"

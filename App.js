@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React, {useEffect, useState} from 'react';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+import StackNavigator from "./src/StackNavigator";
+import { NavigationContainer } from '@react-navigation/native';
+import AuthStack from './src/routes/authStack';
+import { AuthProvider } from './src/useAuth';
+import useAuth from "./src/useAuth";
+
+const App = () => {
+
+
+  return(
+    //wrap-nahme StackNavigatora sus AuthProvider za da moje vseki komponent v nego da polza user promenlivata
+   <NavigationContainer>
+    <AuthProvider>
+          <StackNavigator   />
+    </AuthProvider>
+   </NavigationContainer>
+  
+  
+
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
