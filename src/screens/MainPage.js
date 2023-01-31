@@ -73,7 +73,11 @@ const MainPage = () => {
   // });
 
   const LoadingScrean = () => {
-    return <ActivityIndicator  style={styles.AvtivityIndicatorStyle} size="large" color={Colors.darkBlue} />;
+    return (
+      <View style={styles.ActivityIndicatorStyle}>
+   <ActivityIndicator  size={60} color={Colors.textColor} />
+    </View>
+      )
   };
 
   useEffect(() => {
@@ -349,17 +353,17 @@ const MainPage = () => {
       <View pointerEvents="box-none">
         <Header />
         <View style={styles.loadingView}>
-          {!isLoading ? LoadingScrean() : null}
+          {isLoading ? LoadingScrean() : null}
         </View>
-        <ScrollView style={styles.mainView}>
-          <View style={styles.centerView}>
 
           <LinearGradient
             colors={[Colors.backgroundFirstColor, Colors.backgroundSecondColor]}
-            style={styles.listPageBackgroundLinear}
+            style={styles.mainPageBackgroundLinear}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
           >
+         
+        <ScrollView style={styles.mainView} contentContainerStyle={{ alignItems: "center",width:"100%",}} >
             <Text style={styles.userName}>{userName}</Text>
 
             {_systemPauseBoolean ? (
@@ -474,9 +478,9 @@ const MainPage = () => {
         >
         <Pressable onPress={LogOut} ><Text style={styles.LogOutText}>Излез</Text></Pressable>
       </LinearGradient> */}
-          </LinearGradient>
-</View>
         </ScrollView>
+
+          </LinearGradient>
       </View>
     );
   }
@@ -487,17 +491,16 @@ const styles = StyleSheet.create({
   
   //main
   mainView: {
-    position:"relative",
     width:"100%",
-    backgroundColor: Colors.lightBlue,
-    height: "90%",
+    height: "87%",
+    
   },
   loadingView: {
     position: "absolute",
-    top: 0,
+    top: 24,
     zIndex: 3, // works on ios
     elevation: 3, // works on android
-    height: 40,
+    // height: 90,
     width: "100%",
   },
   willYouEatView: {
@@ -505,10 +508,10 @@ const styles = StyleSheet.create({
     width:370,
     borderRadius: 16,
     // margin: 16,
-    // marginTop: 28,
+    marginTop: 28,
     // padding: 24,
     paddingTop:35,
-    // marginBottom: 28,
+    marginBottom: 24,
     justifyContent: "space-between",
     alignItems: "center",
     shadowColor: Colors.textColor,
@@ -520,7 +523,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.65,
     elevation: 6,
     
-    // paddingBottom:8,
+    paddingBottom:8,
   },
   willYouEatViewPause: {
     flexDirection: "column",
@@ -532,6 +535,11 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: Colors.mainBlue,
   },
+//   centerViewMain: {
+//     alignItems: "center",
+// width:"100%",
+
+//   },
 
 
   //linear
@@ -560,7 +568,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 250,
     width: 361,
-    marginBottom: 60,
     borderBottomLeftRadius: 16,
     borderBottomRightRadius: 16,
     shadowColor: Colors.textColor,
@@ -571,13 +578,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.21,
     shadowRadius: 3.65,
     elevation: 6,
-    
+    marginBottom:36,
   },
   menuLinear: {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    height: 470,
+    height: 440,
     width: 361,
     // paddingBottom:24,
     borderBottomLeftRadius: 16,
@@ -638,7 +645,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
   },
-
 
   //content
 
@@ -719,16 +725,16 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 
-
+  
   //main
-
-
+  
+  
   mealsTodayView: {
-    height: 565,
+    height: 525,
     width:370,
     // margin: 16,
-    // marginTop: 40,
-    // marginBottom: 50,
+    marginTop: 20,
+    marginBottom: 50,
     borderRadius: 16,
     // padding: 16,
     flexDirection: "column",
@@ -742,14 +748,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.21,
     shadowRadius: 3.65,
     elevation: 6,
-  },
-  mealsTodayViewPadding: {
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center",
-    // paddingTop:12,
-    width:"100%",
-    height:"100%",
+    
   },
   centerView: {
     flexDirection: "column",
@@ -758,6 +757,14 @@ const styles = StyleSheet.create({
     height:"100%",
     width:"100%",
     // marginTop:16,
+  },
+  mealsTodayViewPadding: {
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+    width:"100%",
+    height:"100%",
+    marginBottom:32,
   },
 
   //content
@@ -795,7 +802,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    // marginTop: 36,
+    marginTop: 36,
   },
   moneyView: {
     width: 370,
@@ -826,6 +833,7 @@ const styles = StyleSheet.create({
     padding: 12,
     justifyContent: "space-evenly",
     color: Colors.textColor,
+    
   },
   price: {
     fontWeight: "500",
@@ -878,7 +886,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 8,
     maxWidth: 150,
-    // marginVertical: 12,
+    marginVertical: 12,
     borderRadius: 16,
     fontSize: 24,
     shadowColor: Colors.textColor,
@@ -895,13 +903,16 @@ const styles = StyleSheet.create({
   //loading
 
 
-  // AvtivityIndicatorStyle: {
-  //   position: 'absolute',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   top: height*0.93,
-  //   marginLeft: width*0.18,
-  // },
+  ActivityIndicatorStyle: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width:"100%",
+    //ne stavashe sus 100% height
+    height:820,
+    zIndex:100,
+  },
+ 
 });
 
 

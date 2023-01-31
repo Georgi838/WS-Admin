@@ -30,7 +30,11 @@ const AuthPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const LoadingScrean = () => {
-    return <ActivityIndicator style={styles.AvtivityIndicatorStyle} size="large" color={Colors.darkBlue} />;
+    return (
+      <View style={styles.ActivityIndicatorStyle}>
+     <ActivityIndicator  size={60} color={Colors.textColor} />
+    </View>
+      )
   };
   const LogOut = () => {
     signOut(auth)
@@ -141,6 +145,7 @@ const AuthPage = () => {
 };
 
 const styles = StyleSheet.create({
+ 
   //main
   body: {
     height: "100%",
@@ -228,6 +233,15 @@ const styles = StyleSheet.create({
     marginBottom: 36,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
+  },
+  
+  ActivityIndicatorStyle: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width:"100%",
+    height:820,
+    zIndex:100,
   },
 });
 

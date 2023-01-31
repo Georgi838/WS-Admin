@@ -48,7 +48,11 @@ const MainPage = () => {
   const forceUpdate = useCallback(() => updateState({}), []);
 
   const LoadingScrean = () => {
-    return <ActivityIndicator style={styles.AvtivityIndicatorStyle} size="large" color={Colors.darkBlue} />;
+    return (
+      <View style={styles.ActivityIndicatorStyle}>
+    <ActivityIndicator  size={60} color={Colors.textColor} />
+    </View>
+      )
   };
 
   useEffect(() => {
@@ -351,6 +355,7 @@ const MainPage = () => {
 };
 
 const styles = StyleSheet.create({
+  
   //main
   mainView: {
     backgroundColor: Colors.lightBlue,
@@ -556,6 +561,16 @@ const styles = StyleSheet.create({
     paddingRight: 8,
     paddingLeft: 8,
     margin: 6,
+  },
+  
+  ActivityIndicatorStyle: {
+   
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width:"100%",
+    height:820,
+    zIndex:100,
   },
 });
 
