@@ -534,6 +534,16 @@ const styles = StyleSheet.create({
     margin: 16,
     borderRadius: 16,
     backgroundColor: Colors.mainBlue,
+    shadowColor: Colors.textColor,
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.21,
+    shadowRadius: 3.65,
+    elevation: 6,
+    
+  
   },
 //   centerViewMain: {
 //     alignItems: "center",
