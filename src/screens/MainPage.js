@@ -330,7 +330,7 @@ const MainPage = () => {
           <View style={styles.moneyViewMoneyText}>
             <Text style={styles.timesEathen}>Ял съм: - {EatTimes} пъти</Text>
             {!priceDue ? (
-              <Text style={styles.priceAll}>Дължа: - 0.00лв.</Text>
+              <Text style={styles.priceAll}>Дължа: - {(1 * 0).toFixed(2)}лв.</Text>
             ) : (
               <Text style={styles.priceAll}>
                 Дължа: - {(1 * priceDue).toFixed(2)}лв.
@@ -363,7 +363,7 @@ const MainPage = () => {
             end={{ x: 1, y: 0 }}
           >
          
-        <ScrollView style={styles.mainView} contentContainerStyle={{ alignItems: "center",width:"100%",}} >
+        <ScrollView style={styles.mainView} contentContainerStyle={{ alignItems: "center",width:"100%",  paddingBottom:180,}} >
             <Text style={styles.userName}>{userName}</Text>
 
             {_systemPauseBoolean ? (
@@ -492,8 +492,8 @@ const styles = StyleSheet.create({
   //main
   mainView: {
     width:"100%",
-    height: "90%",
-    
+    height: "100%",
+   
   },
   loadingView: {
     position: "absolute",
@@ -508,7 +508,7 @@ const styles = StyleSheet.create({
     width:370,
     borderRadius: 16,
     // margin: 16,
-    marginTop: 28,
+    marginTop: 16,
     // padding: 24,
     paddingTop:35,
     marginBottom: 24,
