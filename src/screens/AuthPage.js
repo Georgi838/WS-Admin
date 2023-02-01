@@ -131,7 +131,7 @@ const AuthPage = () => {
                   start={{ x: 0, y: 1 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Pressable onPress={handleLogin}>
+                  <Pressable style={styles.LogInBtn} onPress={handleLogin} >
                     <Text style={styles.submitBtnText}>Влез</Text>
                   </Pressable>
                 </LinearGradient>
@@ -200,9 +200,6 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   submitBtnLinear: {
-    justifyContent: "center",
-    paddingHorizontal:48,
-    height: 50,
     borderRadius: 16,
     shadowColor: Colors.textColor,
     shadowOffset: {
@@ -233,6 +230,21 @@ const styles = StyleSheet.create({
     marginBottom: 36,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
+  },
+  LogInBtn: {
+    shadowColor: Colors.textColor,
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.21,
+    shadowRadius: 3.65,
+    elevation: 6,
+    paddingHorizontal:48,
+    height: 50,
+    alignItems:"center",
+    justifyContent:"center",
+   
   },
   
   ActivityIndicatorStyle: {
